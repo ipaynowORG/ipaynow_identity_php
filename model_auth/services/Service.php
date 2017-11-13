@@ -98,7 +98,7 @@ class Services
 
 
     /**
-     * 手机号认证（仅支持对私账户）
+     * 手机号认证
      * @param $appId 商户应用Id
      * @param $md5Key 商户应用秘钥
      * @param $desKey 商户3desKey

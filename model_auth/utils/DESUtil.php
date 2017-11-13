@@ -9,15 +9,15 @@ require_once '../conf/Config.php';
  */
 class DESUtil
 {
-    public static function encrypt($data){
+    public static function encrypt($data,$desKey){
         $cipher=MCRYPT_3DES;
         $mode=MCRYPT_MODE_ECB;
-        return mcrypt_encrypt($cipher,Config::$des_key,$data,$mode);
+        return mcrypt_encrypt($cipher,$desKey,$data,$mode);
     }
 
-    public static function decrypt($data){
+    public static function decrypt($data,$desKey){
         $cipher=MCRYPT_3DES;
         $mode=MCRYPT_MODE_ECB;
-        return mcrypt_decrypt($cipher,Config::$des_key,$data,$mode);
+        return mcrypt_decrypt($cipher,$desKey,$data,$mode);
     }
 }

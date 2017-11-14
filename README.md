@@ -27,7 +27,9 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[手机号认证-订单查询](#2.6)
 
-[3. DEMO ](#3)
+[3.应用秘钥获取](#3)
+
+[4. DEMO ](#4)
 
 <h2 id='1'> 1. 概述 </h2>
 
@@ -57,7 +59,7 @@
             */
            public static function toCheckID($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $cardName)
 
-- 返回map中的值的含义
+- 返回参数中的值的含义
 
 <table>
         <tr>
@@ -117,7 +119,7 @@
          */
          public static function queryCheckID($appId, $md5Key, $desKey, $mhtOrderNo)
 
-- 返回map中的值的含义
+- 返回参数中的值的含义
 
 <table>
         <tr>
@@ -184,6 +186,55 @@
         public static function toCheckCard($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$bankCardNum,$mobile)
 
 
+- 返回参数中的值的含义
+
+<table>
+        <tr>
+            <th>名称</th>
+            <th>说明</th>
+        </tr>
+<tr>
+            <td>funcode</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>responseTime</td>
+            <td>yyyyMMddHHmmss</td>
+         </tr>
+<tr>
+            <td>responseCode</td>
+            <td>0000 成功
+                0001 参数信息有误
+                0002 获取商户信息失败
+                0003 获取商户费率失败
+                0004 获取商户可用条数失败
+                0005 商户资金不足
+                0006 验证异常
+                0007 商户订单号重复
+            </td>
+         </tr>
+<tr>
+            <td>nowpayTransId</td>
+            <td>现在支付流水号</td>
+         </tr>
+<tr>
+            <td>requestId</td>
+            <td>现在支付流水号</td>
+         </tr>
+<tr>
+            <td>status</td>
+            <td>00匹配,01不匹配,02未知,03调用错误</td>
+         </tr>
+<tr>
+            <td>transStatus</td>
+            <td>00成功  01失败</td>
+         </tr>
+<tr>
+            <td>mhtOrderNo</td>
+            <td>同输入或SDK自动生成的订单号</td>
+         </tr>
+    </table>
+
 <h4 id='2.4'> 2.4 卡信息认证-订单查询</h4>
 
         /**
@@ -226,7 +277,17 @@
          */
         public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo)
 
-<h2 id='3'> 3. DEMO </h2>
+<h2 id='3'> 3. 应用秘钥获取 </h2>
+
+```
+#appId(应用ID)和md5(appKey),登录商户后台 : https://mch.ipaynow.cn ->商户中心->应用信息可以新增应用或查看appKey
+appId=xxxxxxxxx
+md5=xxxxxxxxxx
+#需要在运营后台-鉴权服务管理 中为商户进行配置
+des=xxxxxxxx
+```        
+
+<h2 id='4'> 4. DEMO </h2>
 
     CheckTest.php
 

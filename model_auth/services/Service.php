@@ -163,6 +163,8 @@ class Services
     public static function buildAndSendQueryReq(Array $req,$appId, $md5Key, $desKey)
     {
         $req_content = Services::buildReqTemplate($req,$appId, $md5Key, $desKey);
+        echo $req_content;
+        echo "\n";
         $resp_content = NetUtil::sendMessage($req_content, Config::$trans_url);
         //Log::outLog("查询接口应答:",$resp_content);
         return Self::parseResp($resp_content,$md5Key,$desKey);
@@ -176,7 +178,7 @@ class Services
         echo "\n";
         echo "第一部分：" . $message_data_one;
         $message_data_two = base64_encode(DESUtil::encrypt($original_text, $desKey));
-        echo "第二部分明文：" . $original_text;
+        echo "第二部分：" . $message_data_two;
         echo "\n";
         $message_data_three = base64_encode(md5($original_text . '&' . $md5Key));
         echo "第三部分：" . $message_data_three ."md5Key " . $md5Key;

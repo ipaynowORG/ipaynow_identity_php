@@ -246,6 +246,62 @@
          * @return bool|string
          */
         public static function queryCheckCard($appId, $md5Key, $desKey, $mhtOrderNo)
+        
+
+- 返回参数中的值的含义
+
+<table>
+        <tr>
+            <th>名称</th>
+            <th>说明</th>
+        </tr>
+<tr>
+            <td>appId</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>funcode</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>responseTime</td>
+            <td>yyyyMMddHHmmss</td>
+         </tr>
+<tr>
+            <td>responseCode</td>
+            <td>0000 认证信息匹配
+                0001 认证信息不匹配
+                0002 参数为空或不合法
+                0003 获取商户信息失败
+                0004 获取商户费率失败
+                0005 获取商户可用条数失败
+                0006 商户资金不足
+                0007 商户订单号重复
+                0008 验证异常
+                0009 身份证名字转码错误
+                0010 银行卡可是错误或银行卡规则未配置
+                0011 银行卡不支持
+                0012 未获取到可用渠道
+            </td>
+         </tr>
+<tr>
+            <td>responseMsg</td>
+            <td>应答信息</td>
+         </tr>
+<tr>
+            <td>status</td>
+            <td>00一致,01验证信息未通过/认证失败/密码错误/无效卡号/此卡已过期/未开通此功能/银行卡与证件不符/银行卡与姓名不符/请求要素不合法/响应吗设置异常/不支持该银行验证
+            02,请求银行超时 03,解密失败/核对md5值异常/核对md5值不通过/报文解析异常/解析银行返回报文失败/商户不存在/其他错误</td>
+         </tr>
+<tr>
+            <td>transStatus</td>
+            <td>00成功,01失败</td>
+         </tr>
+<tr>
+            <td>mhtOrderNo</td>
+            <td>同输入或SDK自动生成的订单号</td>
+         </tr>
+    </table>        
 
 
 
@@ -264,6 +320,56 @@
          * @return bool|string
          */
         public static function toCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$mobile)
+        
+- 返回参数中的值的含义
+
+<table>
+        <tr>
+            <th>名称</th>
+            <th>说明</th>
+        </tr>
+<tr>
+            <td>funcode</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>responseTime</td>
+            <td>yyyyMMddHHmmss</td>
+         </tr>
+<tr>
+            <td>responseCode</td>
+            <td>0000 成功
+                0001 参数信息错误
+                0002 获取商户信息失败
+                0003 获取商户费率失败
+                0004 获取商户可用条数失败
+                0005 商户资金不足
+                0006 验证异常
+                0007 商户订单号重复
+            </td>
+         </tr>
+<tr>
+            <td>responseMsg</td>
+            <td>应答信息</td>
+         </tr>
+<tr>
+            <td>nowpayTransId</td>
+            <td>现在支付流水号</td>
+         </tr>
+<tr>
+            <td>requestId</td>
+            <td>现在支付流水号</td>
+         </tr>
+<tr>
+            <td>status</td>
+            <td>00匹配,01不匹配,02状态未知 03调用错误</td>
+         </tr>
+<tr>
+            <td>mhtOrderNo</td>
+            <td>同输入或SDK自动生成的订单号</td>
+         </tr>
+    </table>
+        
 
 <h4 id='2.6'> 2.6 手机号认证-订单查询</h4>
 
@@ -276,6 +382,50 @@
          * @return bool|string
          */
         public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo)
+        
+- 返回参数中的值的含义
+
+<table>
+        <tr>
+            <th>名称</th>
+            <th>说明</th>
+        </tr>
+<tr>
+            <td>appId</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>funcode</td>
+            <td>同输入</td>
+         </tr>
+<tr>
+            <td>responseTime</td>
+            <td>yyyyMMddHHmmss</td>
+         </tr>
+<tr>
+            <td>responseCode</td>
+            <td>0000 成功
+                0001 参数信息错误
+                0002 订单不存在
+            </td>
+         </tr>
+<tr>
+            <td>responseMsg</td>
+            <td>应答信息</td>
+         </tr>
+<tr>
+            <td>status</td>
+            <td>00匹配,01不匹配,02状态未知 03调用错误</td>
+         </tr>
+<tr>
+            <td>transStatus</td>
+            <td>00成功,01失败</td>
+         </tr>
+<tr>
+            <td>mhtOrderNo</td>
+            <td>同输入或SDK自动生成的订单号</td>
+         </tr>
+    </table>        
 
 <h2 id='3'> 3. 应用秘钥获取 </h2>
 

@@ -8,23 +8,22 @@
 require_once '../services/Service.php';
 
 //身份认证
-//print Services::toCheckID("xxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxx","checkId1","xxxxxxxxxxxxxxxxxxxxxx","xxx");
+//print Services::toCheckID("xxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxx","checkId1","xxxxxxxxxxxxxxxxxxxxxx","xxx",false);
 
 //身份认证查询
-//print Services::queryCheckID("xxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxx","checkId1");
+//print Services::queryCheckID("xxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxx","checkId1");
 
 //卡信息认证 M2M1ZmRjNjc1MmYxNmRiNWNhY2NmMmIzYzk1ZGZlZTI=
 //            Y2IwYjRiYTQ1MTUyOTQ4YTQyNzJhZDBhYjIxZDNkZjI=
-//print Services::toCheckCard("xxxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxx","phpCardbeijin2","xxxxxxxxxxxxxxxxxxxxx","xxx","01","xxxxxxx","xxxxx");
+//print Services::toCheckCard("xxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxx","phpCardbeijin2","xxxxxxxxxxxxxxxxxxxxx","xxx","01","xxxxxxx","xxxxx",false);
 //
 //卡信息认证查询
-//print Services::queryCheckCard("xxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxx","phpCard0");
+//print Services::queryCheckCard("xxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxx","phpCardbeijin2",false);
 
-
-print Services::toCheckMobileNo("xxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxx",
-"xxxxxxxxxxxxxxxxxxxx","phpMobile1","xxxxxxxxxxxxx","xxxx","01","xxxxxx");
+//
+//print Services::toCheckMobileNo("xxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxx","phpMobile1","xxxxxxxxxxxxxxxxx","xxx","01","xxxxxxxxxxxxxx",false);
 //
 //手机号认证查询
-//print Services::queryCheckMobileNo("xxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxxxxxx","phpMobile1");
+//print Services::queryCheckMobileNo("xxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxxxxxx","xxxxxxxxxxxxxxx","phpMobile1",false);
 
 

@@ -8,7 +8,8 @@
     class Config{
         static $timezone="Asia/Shanghai";
 
-        static $trans_url="https://dby.ipaynow.cn/identify";
+        static $test_url="https://dby.ipaynow.cn/identify";
+        static $pro_url="https://s.ipaynow.cn/auth";
 
         const VERIFY_HTTPS_CERT=false;
         const CHECK_ID_FUNCODE="ID01";

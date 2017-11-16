@@ -17,16 +17,17 @@ class Services
      * @param $mhtOrderNo 商户订单号
      * @param $idCard 待认证身份证号
      * @param $cardName 待认证姓名
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string 调用成功返回现在支付订单号  nowpayTransId
      */
-    public static function toCheckID($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $cardName)
+    public static function toCheckID($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $cardName,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::CHECK_ID_FUNCODE;
         $req["idcard"] = $idCard;//身份证号
         $req["cardName"] = $cardName;//姓名
         $req["mhtOrderNo"] = $mhtOrderNo;
-        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
@@ -36,14 +37,15 @@ class Services
      * @param $md5Key 商户应用秘钥
      * @param $desKey 商户3desKey
      * @param $mhtOrderNo 商户订单号
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string
      */
-    public static function queryCheckID($appId, $md5Key, $desKey, $mhtOrderNo)
+    public static function queryCheckID($appId, $md5Key, $desKey, $mhtOrderNo,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::QUERY_CHECK_ID_FUNCODE;
         $req["mhtOrderNo"] = $mhtOrderNo;
-        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
@@ -58,9 +60,10 @@ class Services
      * @param $certiType 证件类型
      * @param $bankCardNum 银行账户
      * @param $mobile 预留手机号
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string
      */
-    public static function toCheckCard($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$bankCardNum,$mobile)
+    public static function toCheckCard($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$bankCardNum,$mobile,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::CHECK_CARD_FUNCODE;
@@ -74,7 +77,7 @@ class Services
         if (strlen($mobile) > 0){
             $req["mobile"] = $mobile;
         }
-        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
@@ -85,14 +88,15 @@ class Services
      * @param $md5Key 商户应用秘钥
      * @param $desKey 商户3desKey
      * @param $mhtOrderNo 商户订单号
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string
      */
-    public static function queryCheckCard($appId, $md5Key, $desKey, $mhtOrderNo)
+    public static function queryCheckCard($appId, $md5Key, $desKey, $mhtOrderNo,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::QUERY_CARD_FUNCODE;
         $req["mhtOrderNo"] = $mhtOrderNo;
-        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
@@ -107,9 +111,10 @@ class Services
      * @param $idCardName 姓名
      * @param $certiType 证件类型
      * @param $mobile 手机号
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string
      */
-    public static function toCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$mobile)
+    public static function toCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$mobile,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::CHECK_MOBILE_NO;
@@ -122,7 +127,7 @@ class Services
         if (strlen($mobile) > 0){
             $req["mobile"] = $mobile;
         }
-        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendCheckReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
@@ -133,26 +138,32 @@ class Services
      * @param $md5Key 商户应用秘钥
      * @param $desKey 商户3desKey
      * @param $mhtOrderNo 商户订单号
+     * @param $isTest 是否测试 true测试，false生产
      * @return bool|string
      */
-    public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo)
+    public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo,$isTest=true)
     {
         $req = array();
         $req["funcode"] = config::QUERY_MOBILE_NO_FUNCODE;
         $req["mhtOrderNo"] = $mhtOrderNo;
-        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey);
+        $req_content = Services::buildAndSendQueryReq($req, $appId, $md5Key, $desKey,$isTest);
         return $req_content;
     }
 
 
 
-    public static function buildAndSendCheckReq(Array $req, $appId, $md5Key, $desKey)
+    public static function buildAndSendCheckReq(Array $req, $appId, $md5Key, $desKey,$isTest)
 
     {
         $req_content = Services::buildReqTemplate($req, $appId, $md5Key, $desKey);
         echo "\n";
         echo "请求报文：" . $req_content;
-        $resp_content = NetUtil::sendMessage($req_content, Config::$trans_url);
+        if($isTest){
+            $url =   Config::$test_url;
+        }else{
+            $url = Config::$pro_url;
+        }
+        $resp_content = NetUtil::sendMessage($req_content, $url);
         echo "应答报文：" . $resp_content;
         echo "\n";
         echo "应答报文：";
@@ -160,12 +171,17 @@ class Services
         return Self::parseResp($resp_content, $md5Key,$desKey);
     }
 
-    public static function buildAndSendQueryReq(Array $req,$appId, $md5Key, $desKey)
+    public static function buildAndSendQueryReq(Array $req,$appId, $md5Key, $desKey,$isTest)
     {
         $req_content = Services::buildReqTemplate($req,$appId, $md5Key, $desKey);
         echo $req_content;
         echo "\n";
-        $resp_content = NetUtil::sendMessage($req_content, Config::$trans_url);
+        if($isTest){
+            $url =   Config::$test_url;
+        }else{
+            $url = Config::$pro_url;
+        }
+        $resp_content = NetUtil::sendMessage($req_content, $url);
         //Log::outLog("查询接口应答:",$resp_content);
         return Self::parseResp($resp_content,$md5Key,$desKey);
     }

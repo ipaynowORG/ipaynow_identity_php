@@ -55,9 +55,10 @@
             * @param $mhtOrderNo 商户订单号
             * @param $idCard 待认证身份证号
             * @param $cardName 待认证姓名
+            * @param $isTest 是否测试 true测试，false生产
             * @return bool|string 调用成功返回现在支付订单号  nowpayTransId
             */
-           public static function toCheckID($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $cardName)
+           public static function toCheckID($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $cardName,$isTest)
 
 - 返回参数中的值的含义
 
@@ -115,9 +116,10 @@
          * @param $md5Key 商户应用秘钥
          * @param $desKey 商户3desKey
          * @param $mhtOrderNo 商户订单号
+         * @param $isTest 是否测试 true测试，false生产
          * @return bool|string
          */
-         public static function queryCheckID($appId, $md5Key, $desKey, $mhtOrderNo)
+         public static function queryCheckID($appId, $md5Key, $desKey, $mhtOrderNo,$isTest)
 
 - 返回参数中的值的含义
 
@@ -181,9 +183,10 @@
          * @param $certiType 证件类型
          * @param $bankCardNum 银行账户
          * @param $mobile 预留手机号
+         * @param $isTest 是否测试 true测试，false生产
          * @return bool|string
          */
-        public static function toCheckCard($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$bankCardNum,$mobile)
+        public static function toCheckCard($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$bankCardNum,$mobile,$isTest)
 
 
 - 返回参数中的值的含义
@@ -243,9 +246,10 @@
          * @param $md5Key 商户应用秘钥
          * @param $desKey 商户3desKey
          * @param $mhtOrderNo 商户订单号
+         * @param $isTest 是否测试 true测试，false生产
          * @return bool|string
          */
-        public static function queryCheckCard($appId, $md5Key, $desKey, $mhtOrderNo)
+        public static function queryCheckCard($appId, $md5Key, $desKey, $mhtOrderNo,$isTest)
         
 
 - 返回参数中的值的含义
@@ -317,9 +321,10 @@
          * @param $idCardName 姓名
          * @param $certiType 证件类型
          * @param $mobile 手机号
+         * @param $isTest 是否测试 true测试，false生产
          * @return bool|string
          */
-        public static function toCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$mobile)
+        public static function toCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo, $idCard, $idCardName,$certiType,$mobile,$isTest)
         
 - 返回参数中的值的含义
 
@@ -379,9 +384,10 @@
          * @param $md5Key 商户应用秘钥
          * @param $desKey 商户3desKey
          * @param $mhtOrderNo 商户订单号
+         * @param $isTest 是否测试 true测试，false生产
          * @return bool|string
          */
-        public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo)
+        public static function queryCheckMobileNo($appId, $md5Key, $desKey, $mhtOrderNo,$isTest)
         
 - 返回参数中的值的含义
 
